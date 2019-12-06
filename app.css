@@ -8,15 +8,17 @@
 */
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
-.banner {
+.banner, footer{
   padding: 20px;
   width: 100%;
   text-align: center;
   background-color: darkolivegreen;
   box-shadow: 6px 6px 10px grey;
   border-bottom: 1px solid black;
+  left: 0;
 }
 
 .main_card {
@@ -34,7 +36,7 @@
 }
 
 button {
-  margin: auto;
+  margin-top: 20px;
   background-color: rgb(101, 128, 155);
   border: 1px solid black;
   max-width: 130px;
@@ -42,4 +44,30 @@ button {
   border-radius: 5px;
   padding: 5px;
   box-shadow: 6px 6px 10px darkolivegreen;
+}
+
+input {
+  margin: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.counts {
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.count {
+  border: 1px solid black;
+  border-radius: 50%;
+  flex-direction: row;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  
 }
