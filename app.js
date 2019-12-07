@@ -1,7 +1,9 @@
 /**
  * Example store structure
  */
-const store = {
+'use strict';
+
+const STORE = {
   // 5 or more questions are required
   questions: [
     {
@@ -26,7 +28,8 @@ const store = {
     }
   ],
   questionNumber: 0,
-  score: 0
+  score: 0,
+  quizStart: false,
 };
 
 /**
@@ -41,3 +44,42 @@ const store = {
  * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
  *
  */
+
+/**
+  * This function renders the quiz after you start, ...
+  * answer a question, or restart the quiz
+  */
+function renderQuiz() {
+  if (quizStart === false) {
+
+  }
+
+}
+/**
+ * This function submits the answer to score which
+ * updates the render function to render a new question, cannot skip q's
+ */
+function submitAnswer() {
+
+}
+/**
+ * This function keeps track of the score
+ */
+function handleScore() {
+
+}
+/**
+ * This function restarts the quiz
+ */
+function restartQuiz() {
+
+}
+/**
+ * this function calls all the other code
+ */
+function handleQuiz() {
+  renderQuiz();
+  submitAnswer();
+  handleScore();
+  restartQuiz();
+}
