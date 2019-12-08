@@ -75,3 +75,11 @@ footer {
 h1 {
   font-family: sans-serif;
 }
+
+.green {
+  background-color: green !important;
+}
+
+.red {
+  background-color: red !important;
+}

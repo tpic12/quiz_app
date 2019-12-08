@@ -86,6 +86,7 @@ function renderQuestion() {
     checkAnswer();
     STORE.questionNumber++;
     $('.main_card').children().remove();
+    renderMidScreen();
     handleQuiz();
   });
 }
@@ -104,21 +105,50 @@ function checkAnswer() {
   for(let i=0; i<ans.length; i++){
     //is a button checked
     if (ans[i].checked) {
-      console.log(ans[i].value);
-      console.log(STORE.questions[STORE.questionNumber].correctAnswer);
+      //console.log(ans[i].value);
+      //console.log(STORE.questions[STORE.questionNumber].correctAnswer);
+
       //compare value of ans[i] to correct answer
       if(ans[i].value === STORE.questions[STORE.questionNumber].correctAnswer){
-        scoreKeeper();
+        scoreKeeper(true);
       }
       else {
-        console.log('boo, but you tried?');
-        break;
+        scoreKeeper(false);
       }
     }
   }
 }
-function scoreKeeper(){
-  STORE.score++;
+function scoreKeeper(bool){
+  if (bool===true) {
+    console.log('plus 1 point');
+    STORE.score++;
+    $(`.${STORE.questionNumber}`).addClass('green');
+    
+
+  }
+  if (bool===false) {
+    console.log('no points for you');
+    $(`.${STORE.questionNumber}`).addClass('red');
+  }
+  
+}
+
+function renderMidScreen(bool) {
+  let midCard = `<h2>${bool}</h2>
+                <button type='submit' id='start_quiz'>Next</button>`;
+
+  if (bool === true) {
+    $('.main_card').html(midCard);
+    $('.main-card').addClass('green');
+  }
+  else {
+    $('.main_card').html(midCard);
+    $('.main-card').addClass('red');
+  }
+  $('.main_card').on('click', '#start_button', event =>{
+    event.preventDefault();
+    handleQuiz();
+  })
 }
 /**
  * This function submits the answer to score which
