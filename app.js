@@ -7,24 +7,84 @@ const STORE = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'How many items in a bakers dozen??',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        '11',
+        '12',
+        '13',
+        '3'
       ],
-      correctAnswer: 'green'
+      correctAnswer: '13'
     },
     {
-      question: 'What is the current year?',
+      question: 'What month is Oktoberfest held?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'September',
+        'October',
+        'Every Month',
+        'August'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'September'
+    },
+    {
+      question: 'What color is an Orange Blossom?',
+      answers: [
+        'Red',
+        'Orange',
+        'Pink',
+        'White'
+      ],
+      correctAnswer: 'White'
+    },
+    {
+      question: 'Where did the Panama Hat originate?',
+      answers: [
+        'Ecuador',
+        'Panama',
+        'China',
+        'Cuba'
+      ],
+      correctAnswer: 'Ecuador'
+    },
+    {
+      question: 'What are toy marbles made from?',
+      answers: [
+        'Plastic',
+        'Quartz',
+        'Diamond',
+        'Glass'
+      ],
+      correctAnswer: 'Glass'
+    },
+    {
+      question: 'How many gallons are in a ten-gallon hat?',
+      answers: [
+        'half a gallon',
+        'ten-gallons',
+        'three-fouths of a gallon',
+        'five-gallon'
+      ],
+      correctAnswer: 'three-fourths of a gallon'
+    },
+    {
+      question: 'What is the biggest animal to ever live?',
+      answers: [
+        'Mammoth',
+        'T-Rex',
+        'Blue Whale',
+        'Brontosaurus'
+      ],
+      correctAnswer: 'Blue Whale'
+    },
+    {
+      question: 'Where is the red-bellied woodpecker predominately red?',
+      answers: [
+        'Head',
+        'Wings',
+        'Feet',
+        'Belly'
+      ],
+      correctAnswer: 'Head'
     },
   ],
   questionNumber: 0,
@@ -84,9 +144,9 @@ function renderQuestion() {
   $('.main_card').on('click', '#submit_answer', event =>{
     event.preventDefault();
     checkAnswer();
+    console.log('next q!');
     STORE.questionNumber++;
     $('.main_card').children().remove();
-    renderMidScreen();
     handleQuiz();
   });
 }
@@ -123,8 +183,6 @@ function scoreKeeper(bool){
     console.log('plus 1 point');
     STORE.score++;
     $(`.${STORE.questionNumber}`).addClass('green');
-    
-
   }
   if (bool===false) {
     console.log('no points for you');
@@ -148,7 +206,7 @@ function renderMidScreen(bool) {
   $('.main_card').on('click', '#start_button', event =>{
     event.preventDefault();
     handleQuiz();
-  })
+  });
 }
 /**
  * This function submits the answer to score which
