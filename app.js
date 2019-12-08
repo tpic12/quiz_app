@@ -144,8 +144,7 @@ function renderQuestion() {
   $('.main_card').on('click', '#submit_answer', event =>{
     event.preventDefault();
     checkAnswer();
-    console.log('next q!');
-    STORE.questionNumber++;
+    //original next question spot
     $('.main_card').children().remove();
     handleQuiz();
   });
@@ -165,9 +164,6 @@ function checkAnswer() {
   for(let i=0; i<ans.length; i++){
     //is a button checked
     if (ans[i].checked) {
-      //console.log(ans[i].value);
-      //console.log(STORE.questions[STORE.questionNumber].correctAnswer);
-
       //compare value of ans[i] to correct answer
       if(ans[i].value === STORE.questions[STORE.questionNumber].correctAnswer){
         scoreKeeper(true);
@@ -183,10 +179,14 @@ function scoreKeeper(bool){
     console.log('plus 1 point');
     STORE.score++;
     $(`.${STORE.questionNumber}`).addClass('green');
+    console.log('next q!');
+    STORE.questionNumber++;
   }
   if (bool===false) {
     console.log('no points for you');
     $(`.${STORE.questionNumber}`).addClass('red');
+    console.log('next q!');
+    STORE.questionNumber++;
   }
   
 }
