@@ -104,22 +104,22 @@ function checkAnswer() {
   for(let i=0; i<ans.length; i++){
     //is a button checked
     if (ans[i].checked) {
-      console.log(document.getElementById('qform').value);
+      console.log(ans[i].value);
       console.log(STORE.questions[STORE.questionNumber].correctAnswer);
       //compare value of ans[i] to correct answer
-      /*if(document.getElementById(`${i}`).textContent === STORE.questions[STORE.questionNumber].correctAnswer){
-        console.log('yay');
+      if(ans[i].value === STORE.questions[STORE.questionNumber].correctAnswer){
+        scoreKeeper();
       }
       else {
         console.log('boo, but you tried?');
         break;
-      }*/
+      }
     }
   }
-  //console.log(ans[3].checked);
-  //console.log(STORE.questions[STORE.questionNumber].correctAnswer);
 }
-
+function scoreKeeper(){
+  STORE.score++;
+}
 /**
  * This function submits the answer to score which
  * updates the render function to render a new question, cannot skip q's
