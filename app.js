@@ -220,40 +220,6 @@ function scoreKeeper(bool) {
   }
 }
 
-/* Unused function
-function renderMidScreen(bool) {
-  let midCard = `<h2>${bool}</h2>
-                <button type='submit' id='start_quiz'>Next</button>`;
-
-  if (bool === true) {
-    $('.main_card').html(midCard);
-    $('.main-card').addClass('green');
-  } else {
-    $('.main_card').html(midCard);
-    $('.main-card').addClass('red');
-  }
-  $('.main_card').on('click', '#start_button', function(event) {
-    event.preventDefault();
-    handleQuiz();
-  });
-}
-*/
-/**
- * This function submits the answer to score which
- * updates the render function to render a new question, cannot skip q's
- */
-function submitAnswer() {}
-/**
- * This function keeps track of the score
- */
-function handleScore() {}
-/**
- * This function restarts the quiz
- */
-function restartQuiz() {}
-/**
- * this function calls all the other code
- */
 function handleQuiz() {
   if (STORE.quizStart === false) {
     renderStartQuiz();
