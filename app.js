@@ -34,12 +34,12 @@ const STORE = {
     {
       question: 'How many gallons are in a ten-gallon hat?',
       answers: [
-        'half a gallon',
-        'ten-gallons',
-        'three-fouths of a gallon',
-        'five-gallon'
+        'Half a Gallon',
+        'Ten-Gallons',
+        'Three-Fourths of a Gallon',
+        'Give-Gallon'
       ],
-      correctAnswer: 'three-fourths of a gallon'
+      correctAnswer: 'Three-Fourths of a Gallon'
     },
     {
       question: 'What is the biggest animal to ever live?',
@@ -131,7 +131,7 @@ function renderQuestion() {
     <button type='submit' id='submit_answer'>Final Answer</button>`;
 
     $('.main_card').html(qCard);
-
+    $('input:checked').on('su');
     $('.main_card').on('click', '#submit_answer', function(event) {
       event.preventDefault();
       checkAnswer();
@@ -202,7 +202,10 @@ function scoreKeeper(bool) {
   if (bool === true) {
     console.log('plus 1 point');
     STORE.score++;
-    $(`.${STORE.questionNumber}`).addClass('green');
+    $(`.${STORE.questionNumber}`)
+      .addClass('green')
+      .addClass('tooltip')
+      .html(`<span class="tooltiptext">Correct!</span>`);
     $('section.main_card');
     console.log('next q!');
     STORE.questionNumber++;
