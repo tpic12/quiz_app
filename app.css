@@ -30,12 +30,10 @@ footer {
 }
 
 .display {
-  /*display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;*/
-  position: absolute;
-  left: 37%;
-  top: 37%;
+  justify-content: center;
+  min-height: 350px;
 }
 
 .main_card {
