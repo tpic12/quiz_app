@@ -36,7 +36,7 @@ const STORE = {
       answers: [
         'half a gallon',
         'ten-gallons',
-        'three-fouths of a gallon',
+        'three-fourths of a gallon',
         'five-gallon'
       ],
       correctAnswer: 'three-fourths of a gallon'
@@ -108,25 +108,25 @@ function renderQuestion() {
     const qCard = `<h2>${STORE.questions[STORE.questionNumber].question}</h2>
     <form id="qForm">
         <input type='radio' name='answer' id='q1' value="${
-          STORE.questions[STORE.questionNumber].answers[0]
-        }"/><label for='q1' id='0'>${
-      STORE.questions[STORE.questionNumber].answers[0]
-    }</label>
+  STORE.questions[STORE.questionNumber].answers[0]
+}"/><label for='q1' id='0'>${
+  STORE.questions[STORE.questionNumber].answers[0]
+}</label>
         <input type='radio' name='answer' id='q2' value="${
-          STORE.questions[STORE.questionNumber].answers[1]
-        }"/><label for='q2' id='1'>${
-      STORE.questions[STORE.questionNumber].answers[1]
-    }</label><br>
+  STORE.questions[STORE.questionNumber].answers[1]
+}"/><label for='q2' id='1'>${
+  STORE.questions[STORE.questionNumber].answers[1]
+}</label><br>
         <input type='radio' name='answer' id='q3' value="${
-          STORE.questions[STORE.questionNumber].answers[2]
-        }"/><label for='q3' id='2'>${
-      STORE.questions[STORE.questionNumber].answers[2]
-    }</label>
+  STORE.questions[STORE.questionNumber].answers[2]
+}"/><label for='q3' id='2'>${
+  STORE.questions[STORE.questionNumber].answers[2]
+}</label>
         <input type='radio' name='answer' id='q4' value="${
-          STORE.questions[STORE.questionNumber].answers[3]
-        }"/><label for='q4' id='3'>${
-      STORE.questions[STORE.questionNumber].answers[3]
-    }</label><br>
+  STORE.questions[STORE.questionNumber].answers[3]
+}"/><label for='q4' id='3'>${
+  STORE.questions[STORE.questionNumber].answers[3]
+}</label><br>
     </form>
     <button type='submit' id='submit_answer'>Final Answer</button>`;
 
@@ -167,6 +167,9 @@ function renderResults() {
 
     STORE.questionNumber = 0;
     STORE.score = 0;
+
+    $('.count').removeClass('green');
+    $('.count').removeClass('red');
 
     renderQuestion();
   });

@@ -29,15 +29,25 @@ footer {
   left: 0;
 }
 
+.display {
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;*/
+  position: absolute;
+  left: 37%;
+  top: 37%;
+}
+
 .main_card {
   display: flex;
   flex-flow: column wrap;
   margin: auto;
-  margin-top: 100px;
+  /*margin-top: 5%;*/
+  align-self: flex-end;
   max-width: 400px;
   min-width: 200px;
   text-align: center;
-  align-content: center;
+  /*align-content: center;*/
   background-color: hsl(161, 74%, 47%);
   border-radius: 15px;
   padding: 20px;
@@ -54,6 +64,7 @@ button {
   border-radius: 5px;
   padding: 5px;
   box-shadow: -2px 4px 8px hsl(142, 98%, 24%);
+  align-self: center;
 }
 
 .mid-card {
@@ -100,7 +111,7 @@ footer {
   background-color: hsl(0, 100%, 99%);
 }
 
-h1 {
+h1, h2, button{
   font-family: sans-serif;
 }
 
