@@ -82,7 +82,7 @@ function renderStartQuiz() {
 
   $('.display').html(mainCard);
 
-  $('.display').on('click', '#start_quiz', event => {
+  $('.display').on('click', '#start_quiz', function(event) {
     event.preventDefault();
     STORE.quizStart = true;
     $('.main_card')
@@ -99,10 +99,6 @@ function renderQuestion() {
     STORE.questionNumber === STORE.questions.length &&
     STORE.questionNumber > 1
   ) {
-    console.log(
-      `ran results: ${(STORE.questionNumber, STORE.questions.length)}`
-    );
-
     renderResults();
   } else {
     const qCard = `<h2>${STORE.questions[STORE.questionNumber].question}</h2>
@@ -154,9 +150,8 @@ function generateResults(finalScore, numberOfQuestions) {
   return `<h2>You scored ${finalScore} out of ${numberOfQuestions}!</h2><button id='restart'>Restart Quiz</button>`;
 }
 
+/* Render results element with button that restarts the quiz*/
 function renderResults() {
-  console.log(`ran results: ${STORE.questionNumber} ${STORE.questions.length}`);
-
   let score = STORE.score;
   let num = STORE.questionNumber;
 
@@ -164,13 +159,13 @@ function renderResults() {
   $('#restart').click(function(event) {
     event.preventDefault();
     console.log('Restarting Quiz');
-
     STORE.questionNumber = 0;
     STORE.score = 0;
 
     renderQuestion();
   });
 }
+
 /**
  * this function checks the correctnes of the answer
  */
@@ -225,6 +220,7 @@ function scoreKeeper(bool) {
   }
 }
 
+/* Unused function
 function renderMidScreen(bool) {
   let midCard = `<h2>${bool}</h2>
                 <button type='submit' id='start_quiz'>Next</button>`;
@@ -241,6 +237,7 @@ function renderMidScreen(bool) {
     handleQuiz();
   });
 }
+*/
 /**
  * This function submits the answer to score which
  * updates the render function to render a new question, cannot skip q's
