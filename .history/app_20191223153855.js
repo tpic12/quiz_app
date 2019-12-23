@@ -159,14 +159,9 @@ function renderResults() {
   $('#restart').click(function(event) {
     event.preventDefault();
     console.log('Restarting Quiz');
-
     STORE.questionNumber = 0;
     STORE.score = 0;
-    $('.count')
-      .removeClass('snackbar')
-      .removeClass('red')
-      .removeClass('green')
-      .removeClass('show');
+
     renderStartQuiz();
   });
 }

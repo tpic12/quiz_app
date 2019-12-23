@@ -165,8 +165,7 @@ function renderResults() {
     $('.count')
       .removeClass('snackbar')
       .removeClass('red')
-      .removeClass('green')
-      .removeClass('show');
+      .removeClass('green');
     renderStartQuiz();
   });
 }

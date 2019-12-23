@@ -94,23 +94,24 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 200px;
 }
 
 .counts {
   display: flex;
   justify-content: space-evenly;
-  height: 80%;
+}
+
+.counts p {
 }
 
 .count {
   border: 2px outset hsl(186, 63%, 55%);
   border-radius: 40%;
   flex-direction: row;
-  width: 120px;
-  height: 120px;
+  width: 85px;
+  height: 85px;
   background-color: hsl(0, 100%, 99%);
-  padding: 15px;
+  padding: 5px;
 }
 
 h1 {
