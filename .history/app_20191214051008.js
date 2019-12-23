@@ -200,7 +200,7 @@ function scoreKeeper(bool) {
     $(`.${STORE.questionNumber}`)
       .addClass('green')
       .addClass('snackbar')
-      .html(`<p>Correct!</p>`);
+      .html(`<span>Correct!</span>`);
     $('section.main_card');
     console.log('next q!');
     STORE.questionNumber++;
@@ -225,6 +225,9 @@ function handleQuiz() {
     renderStartQuiz();
   } else {
     renderQuestion();
+    handleScore();
+    //renderResults();
+    restartQuiz();
   }
 }
 

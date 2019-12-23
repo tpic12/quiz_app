@@ -101,15 +101,12 @@ footer {
   justify-content: space-evenly;
 }
 
-.counts p {
-}
-
 .count {
   border: 2px outset hsl(186, 63%, 55%);
   border-radius: 40%;
   flex-direction: row;
-  width: 85px;
-  height: 85px;
+  width: 25px;
+  height: 25px;
   background-color: hsl(0, 100%, 99%);
 }
 
@@ -129,15 +126,15 @@ h1 {
   visibility: hidden;
   min-width: 350px;
   margin-left: -125px;
-
+  background-color: #333;
   color: #fff;
   text-align: center;
-  align-content: flex-end;
-  padding: 20px;
+  border-radius: 2px;
+  padding: 16px;
   position: fixed;
   z-index: 1;
   left: 50%;
-  bottom: 30px;
+  bottom: -130px;
 }
 
 #snackbar.show {

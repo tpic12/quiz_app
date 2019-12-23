@@ -1,4 +1,4 @@
-/**
+
  * Example store structure
  */
 'use strict';
@@ -34,12 +34,12 @@ const STORE = {
     {
       question: 'How many gallons are in a ten-gallon hat?',
       answers: [
-        'Half a Gallon',
-        'Ten-Gallons',
-        'Three-Fourths of a Gallon',
-        'Give-Gallon'
+        'half a gallon',
+        'ten-gallons',
+        'three-fouths of a gallon',
+        'five-gallon'
       ],
-      correctAnswer: 'Three-Fourths of a Gallon'
+      correctAnswer: 'three-fourths of a gallon'
     },
     {
       question: 'What is the biggest animal to ever live?',
@@ -88,6 +88,8 @@ function renderStartQuiz() {
     $('.main_card')
       .children()
       .remove();
+    console.log('quiz started on click');
+
     handleQuiz();
   });
 }
@@ -95,77 +97,51 @@ function renderStartQuiz() {
  * renders question one at a time depending on question number
  */
 function renderQuestion() {
-  if (
-    STORE.questionNumber === STORE.questions.length &&
-    STORE.questionNumber > 1
-  ) {
-    renderResults();
-  } else {
-    const qCard = `<h2>${STORE.questions[STORE.questionNumber].question}</h2>
+  const qCard = `<h2>${STORE.questions[STORE.questionNumber].question}</h2>
     <form id="qForm">
-        <input type='radio' name='answer' id='q1' value="${
+      <input 
+        type='radio' 
+        name='answer' 
+        id='q1' 
+        value="${
           STORE.questions[STORE.questionNumber].answers[0]
         }"/><label for='q1' id='0'>${
-      STORE.questions[STORE.questionNumber].answers[0]
-    }</label>
-        <input type='radio' name='answer' id='q2' value="${
-          STORE.questions[STORE.questionNumber].answers[1]
-        }"/><label for='q2' id='1'>${
-      STORE.questions[STORE.questionNumber].answers[1]
-    }</label><br>
-        <input type='radio' name='answer' id='q3' value="${
-          STORE.questions[STORE.questionNumber].answers[2]
-        }"/><label for='q3' id='2'>${
-      STORE.questions[STORE.questionNumber].answers[2]
-    }</label>
-        <input type='radio' name='answer' id='q4' value="${
-          STORE.questions[STORE.questionNumber].answers[3]
-        }"/><label for='q4' id='3'>${
-      STORE.questions[STORE.questionNumber].answers[3]
-    }</label><br>
-    </form>
-    <button type='submit' id='submit_answer'>Final Answer</button>`;
+    STORE.questions[STORE.questionNumber].answers[0]
+  }</label>
+      <input type='radio' name='answer' id='q2' value="${
+        STORE.questions[STORE.questionNumber].answers[1]
+      }"/><label for='q2' id='1'>${
+    STORE.questions[STORE.questionNumber].answers[1]
+  }</label><br>
+      <input type='radio' name='answer' id='q3' value="${
+        STORE.questions[STORE.questionNumber].answers[2]
+      }"/><label for='q3' id='2'>${
+    STORE.questions[STORE.questionNumber].answers[2]
+  }</label>
+      <input type='radio' name='answer' id='q4' value="${
+        STORE.questions[STORE.questionNumber].answers[3]
+      }"/><label for='q4' id='3'>${
+    STORE.questions[STORE.questionNumber].answers[3]
+  }</label><br>
+  </form>
+  <button type='submit' id='submit_answer'>Final Answer</button>`;
 
-    $('.main_card').html(qCard);
-    $('input:checked').on('su');
-    $('.main_card').on('click', '#submit_answer', function(event) {
-      event.preventDefault();
-      checkAnswer();
-      //original next question spot
+  $('.main_card').html(qCard);
 
-      $('.main_card')
-        .children()
-        .remove();
-
-      handleQuiz();
-    });
-  }
+  $('.main_card').on('click', '#submit_answer', event => {
+    event.preventDefault();
+    checkAnswer();
+    //original next question spot
+    $('.main_card')
+      .children()
+      .remove();
+    handleQuiz();
+  });
 }
 /**
  * renders results page
- 
  */
-
-function generateResults(finalScore, numberOfQuestions) {
-  return `<h2>You scored ${finalScore} out of ${numberOfQuestions}!</h2><button id='restart'>Restart Quiz</button>`;
-}
-
-/* Render results element with button that restarts the quiz*/
-function renderResults() {
-  let score = STORE.score;
-  let num = STORE.questionNumber;
-
-  $('.main_card').html(generateResults(score, num));
-  $('#restart').click(function(event) {
-    event.preventDefault();
-    console.log('Restarting Quiz');
-    STORE.questionNumber = 0;
-    STORE.score = 0;
-
-    renderQuestion();
-  });
-}
-
+function renderResults() {}
 /**
  * this function checks the correctnes of the answer
  */
@@ -186,45 +162,71 @@ function checkAnswer() {
     }
   }
 }
-
-function generateAnswerSnackbar(questionAnswer) {
-  return `<div class=.${STORE.questionNumber}>
-              <p>Sorry, the correct answer is ${questionAnswer}</p>
-          </div>`;
-}
-
 function scoreKeeper(bool) {
-  if (bool === true) {
+  if (bool) {
     console.log('plus 1 point');
     STORE.score++;
-    $(`.${STORE.questionNumber}`)
-      .addClass('green')
-      .addClass('snackbar')
-      .html(`<p>Correct!</p>`);
-    $('section.main_card');
+    $(`.${STORE.questionNumber}`).addClass('green');
     console.log('next q!');
     STORE.questionNumber++;
-  }
-  if (bool === false) {
+    renderMidScreen('That is Correct');
+  } else {
     console.log('no points for you');
-    $(`.${STORE.questionNumber}`)
-      .addClass('red')
-      .addClass('snackbar')
-      .html(
-        generateAnswerSnackbar(
-          STORE.questions[STORE.questionNumber].correctAnswer
-        )
-      );
+    $(`.${STORE.questionNumber}`).addClass('red');
     console.log('next q!');
     STORE.questionNumber++;
+    renderMidScreen(
+      `Sorry, the correct answer is ${
+        STORE.questions[STORE.questionNumber].correctAnswer
+      }`
+    );
   }
 }
 
+function renderMidScreen(message) {
+  console.log('RenderMidScreen ran');
+
+  let midCard = `<h2>${message}</h2>
+                <button type='submit' id='#start_button'>Next</button>`;
+
+  if (message === 'That is Correct') {
+    $('.main_card').html(midCard);
+    $('.main-card').addClass('green');
+    handleQuiz(); 
+  } else {
+    $('.main_card').html(midCard);
+    $('.main-card').addClass('red');
+  }
+  $('.main_card').on('click', '#start_button', event => {
+    event.preventDefault();
+    handleQuiz();
+  });
+}
+/**
+ * This function submits the answer to score which
+ * updates the render function to render a new question, cannot skip q's
+ */
+//function submitAnswer() {}
+/**
+ * This function keeps track of the score
+ */
+//function handleScore() {}
+/**
+ * This function restarts the quiz
+ */
+//function restartQuiz() {}
+/**
+ * this function calls all the other code
+ */
 function handleQuiz() {
   if (STORE.quizStart === false) {
     renderStartQuiz();
   } else {
     renderQuestion();
+    renderMidScreen();
+    handleScore();
+    renderResults();
+    restartQuiz();
   }
 }
 

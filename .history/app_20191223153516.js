@@ -200,7 +200,10 @@ function scoreKeeper(bool) {
     $(`.${STORE.questionNumber}`)
       .addClass('green')
       .addClass('snackbar')
-      .html(`<p>Correct!</p>`);
+      .html(`<p>Correct!</p>`)
+      .setTimeout(() => {
+        $(this.removeClass('show'));
+      }, 4000);
     $('section.main_card');
     console.log('next q!');
     STORE.questionNumber++;

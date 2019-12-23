@@ -101,9 +101,6 @@ footer {
   justify-content: space-evenly;
 }
 
-.counts p {
-}
-
 .count {
   border: 2px outset hsl(186, 63%, 55%);
   border-radius: 40%;
@@ -129,7 +126,7 @@ h1 {
   visibility: hidden;
   min-width: 350px;
   margin-left: -125px;
-
+  background-color: #333;
   color: #fff;
   text-align: center;
   align-content: flex-end;

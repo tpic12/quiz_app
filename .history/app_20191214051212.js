@@ -225,6 +225,9 @@ function handleQuiz() {
     renderStartQuiz();
   } else {
     renderQuestion();
+    handleScore();
+    //renderResults();
+    restartQuiz();
   }
 }
 

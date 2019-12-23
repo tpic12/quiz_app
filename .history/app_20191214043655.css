@@ -101,15 +101,12 @@ footer {
   justify-content: space-evenly;
 }
 
-.counts p {
-}
-
 .count {
   border: 2px outset hsl(186, 63%, 55%);
   border-radius: 40%;
   flex-direction: row;
-  width: 85px;
-  height: 85px;
+  width: 25px;
+  height: 25px;
   background-color: hsl(0, 100%, 99%);
 }
 
@@ -125,67 +122,46 @@ h1 {
   background-color: red !important;
 }
 
-#snackbar {
-  visibility: hidden;
-  min-width: 350px;
-  margin-left: -125px;
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
   color: #fff;
   text-align: center;
-  align-content: flex-end;
-  padding: 20px;
-  position: fixed;
+  padding: 15px 10px;
+  border-radius: 6px;
+  position: absolute;
   z-index: 1;
+  bottom: 225%;
   left: 50%;
-  bottom: 30px;
+  margin-left: -60px;
+
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-#snackbar.show {
+.tooltip .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(155, 101, 101) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
   visibility: visible;
-  /-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  opacity: 1;
 }
 
-@-webkit-keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
-  }
-  to {
-    bottom: 30px;
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
-  }
-  to {
-    bottom: 30px;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
+.showToggle {
+  visibility: visible;
 }

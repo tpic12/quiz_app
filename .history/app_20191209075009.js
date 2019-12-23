@@ -187,9 +187,9 @@ function checkAnswer() {
   }
 }
 
-function generateAnswerSnackbar(questionAnswer) {
-  return `<div class=.${STORE.questionNumber}>
-              <p>Sorry, the correct answer is ${questionAnswer}</p>
+function generateAnswerTooltip(questionAnswer) {
+  return `<div class="tooltip">
+              <span class="tooltiptext">Sorry, the correct answer is ${questionAnswer}</span>
           </div>`;
 }
 
@@ -199,8 +199,8 @@ function scoreKeeper(bool) {
     STORE.score++;
     $(`.${STORE.questionNumber}`)
       .addClass('green')
-      .addClass('snackbar')
-      .html(`<p>Correct!</p>`);
+      .addClass('tooltip')
+      .html(`<span class="tooltiptext">Correct!</span>`);
     $('section.main_card');
     console.log('next q!');
     STORE.questionNumber++;
@@ -209,9 +209,9 @@ function scoreKeeper(bool) {
     console.log('no points for you');
     $(`.${STORE.questionNumber}`)
       .addClass('red')
-      .addClass('snackbar')
+      .addClass('tooltip')
       .html(
-        generateAnswerSnackbar(
+        generateAnswerTooltip(
           STORE.questions[STORE.questionNumber].correctAnswer
         )
       );
@@ -225,6 +225,9 @@ function handleQuiz() {
     renderStartQuiz();
   } else {
     renderQuestion();
+    handleScore();
+    //renderResults();
+    restartQuiz();
   }
 }
 
