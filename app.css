@@ -33,6 +33,7 @@ footer {
   display: flex;
   min-width: 40vw;
   min-height: 40vh;
+  max-width: 50vw;
   text-align: center;
   justify-content: center;
   align-content: space-around;
@@ -42,6 +43,8 @@ footer {
   border: none;
   box-shadow: -2px 6px 12px grey;
   flex-flow: column nowrap;
+  margin-top: 10vh;
+  margin-bottom: 4vh;
 }
 
 button {
@@ -126,24 +129,11 @@ h1 {
   background-color: red !important;
 }
 
-#snackbar > p {
-  visibility: hidden;
-  min-width: 15vw;
-
-  color: #fff;
-  text-align: center;
-  align-content: flex-start;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  left: ;
-  top: -30px;
-}
-
 @media screen and (max-width: 450px) {
   .main_card {
     flex-flow: row wrap;
     max-width: 90vw;
+    max-height: 30vh;
   }
 
   #qForm {
@@ -164,7 +154,7 @@ h1 {
     display: inline-block !important;
   }
   footer {
-    height: 40vh;
+    height: 30vh;
     overflow: scroll;
   }
   .counts {
