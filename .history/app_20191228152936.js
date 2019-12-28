@@ -117,7 +117,7 @@ function renderQuestion() {
       STORE.questions[STORE.questionNumber].answers[1]
     }</label></div>
     
-    <div>
+    <br><div>
         <input type='radio' name='answer' id='q3' value="${
           STORE.questions[STORE.questionNumber].answers[2]
         }"/><label for='q3' id='2'>${

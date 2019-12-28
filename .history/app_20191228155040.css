@@ -41,26 +41,18 @@ footer {
   padding: 20px;
   border: none;
   box-shadow: -2px 6px 12px grey;
-  flex-flow: column nowrap;
 }
 
 button {
-  color: white;
   margin: 30%;
   margin-bottom: 10%;
-  background: linear-gradient(
-    120deg,
-    hsl(189, 98%, 66%) 10%,
-    hsl(229, 100%, 65%) 12%,
-    hsl(273, 100%, 64%) 14%,
-    hsl(266, 62%, 55%) 20%
-  );
+  color: linear-gradient(80deg hsl(210, 100%, 80%),hsl(210, 100%, 70%),hsl(210, 100%, 60%),hsl(210, 100%, 50%), )
   border: none;
   max-width: 130px;
   min-width: 100px;
   border-radius: 5px;
   padding: 15px;
-  box-shadow: -2px 4px 6px hsl(294, 81%, 82%);
+  box-shadow: -2px 4px 6px hsl(142, 98%, 24%);
 }
 
 .main_card > form#qForm {
@@ -70,7 +62,6 @@ button {
   text-align: center;
   margin: 0 auto;
   width: 60vw;
-  padding: 0;
 }
 
 .main_card > h2 {
@@ -80,18 +71,15 @@ button {
 }
 
 #qForm > div {
-  margin-left: 0;
+  margin-left: 5vw;
   margin-right: auto;
-  margin-bottom: 5px;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  max-height: 40vh;
-  margin-bottom: 0;
-  width: 100vw;
+  max-height: 20vh;
 }
 
 .counts {
@@ -138,6 +126,12 @@ h1 {
   z-index: 1;
   left: ;
   top: -30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  /-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @media screen and (max-width: 450px) {

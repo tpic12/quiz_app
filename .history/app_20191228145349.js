@@ -103,33 +103,27 @@ function renderQuestion() {
   } else {
     const qCard = `<h2>${STORE.questions[STORE.questionNumber].question}</h2>
     <form id="qForm">
-<div>
         <input type='radio' name='answer' id='q1' value="${
           STORE.questions[STORE.questionNumber].answers[0]
         }"/><label for='q1' id='0'>${
       STORE.questions[STORE.questionNumber].answers[0]
     }</label>
-</div>
-<div>
         <input type='radio' name='answer' id='q2' value="${
           STORE.questions[STORE.questionNumber].answers[1]
         }"/><label for='q2' id='1'>${
       STORE.questions[STORE.questionNumber].answers[1]
-    }</label></div>
-    
-    <div>
+    }</label><br>
         <input type='radio' name='answer' id='q3' value="${
           STORE.questions[STORE.questionNumber].answers[2]
         }"/><label for='q3' id='2'>${
       STORE.questions[STORE.questionNumber].answers[2]
     }</label>
-</div><div>
         <input type='radio' name='answer' id='q4' value="${
           STORE.questions[STORE.questionNumber].answers[3]
         }"/><label for='q4' id='3'>${
       STORE.questions[STORE.questionNumber].answers[3]
-    }</label></div><br>
-    <form>
+    }</label><br>
+    </form>
     <button type='submit' id='submit_answer'>Final Answer</button>`;
 
     $('.main_card').html(qCard);

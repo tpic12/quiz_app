@@ -41,57 +41,59 @@ footer {
   padding: 20px;
   border: none;
   box-shadow: -2px 6px 12px grey;
-  flex-flow: column nowrap;
 }
 
 button {
-  color: white;
   margin: 30%;
   margin-bottom: 10%;
-  background: linear-gradient(
-    120deg,
-    hsl(189, 98%, 66%) 10%,
-    hsl(229, 100%, 65%) 12%,
-    hsl(273, 100%, 64%) 14%,
-    hsl(266, 62%, 55%) 20%
-  );
+  color: hsl(0, 7%, 92%);
+  background: linear-gradient(140deg, hsl(210, 91%, 50%), hsl(258, 78%, 65%));
   border: none;
   max-width: 130px;
   min-width: 100px;
   border-radius: 5px;
   padding: 15px;
-  box-shadow: -2px 4px 6px hsl(294, 81%, 82%);
+  box-shadow: -2px 4px 6px hsl(142, 98%, 24%);
 }
 
 .main_card > form#qForm {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   text-align: center;
-  margin: 0 auto;
-  width: 60vw;
-  padding: 0;
 }
-
+/*
+.mid-card {
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  margin-top: 100px;
+  max-width: 400px;
+  min-width: 200px;
+  text-align: center;
+  align-items: center;
+  background-color: hsl(161, 74%, 47%);
+  border-radius: 15px;
+  padding: 20px;
+  border: none;
+  box-shadow: -2px 6px 12px grey;
+}
+*/
 .main_card > h2 {
   justify-self: center;
   font-weight: bolder;
   color: hsl(210, 90%, 20%);
 }
 
-#qForm > div {
-  margin-left: 0;
-  margin-right: auto;
-  margin-bottom: 5px;
+input {
+  margin: 5px 20px;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  max-height: 40vh;
-  margin-bottom: 0;
-  width: 100vw;
+  max-height: 20vh;
 }
 
 .counts {
@@ -140,46 +142,30 @@ h1 {
   top: -30px;
 }
 
+#snackbar.show {
+  visibility: visible;
+  /-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
 @media screen and (max-width: 450px) {
   .main_card {
     flex-flow: row wrap;
     max-width: 90vw;
   }
 
-  #qForm {
-    font-size: 0.8em;
-    padding: 5px !important;
-    margin: 5px;
-    flex-flow: column wrap !important;
-  }
-  #qForm > div {
-    margin-left: 15px;
-    margin-right: auto;
-  }
-  #qForm > input {
-    display: inline-block !important;
+  section.main_card > form > input,
+  section.main_card > form > label {
+    display: block;
   }
 
-  #qForm > label {
-    display: inline-block !important;
-  }
-  footer {
-    height: 40vh;
-    overflow: scroll;
-  }
   .counts {
     flex-direction: column;
   }
 
   .count {
     width: 100%;
-    margin: 5px;
     height: 20px;
-    border: 1px solid aquamarine;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
+    align-items: center;
   }
 }

@@ -41,7 +41,6 @@ footer {
   padding: 20px;
   border: none;
   box-shadow: -2px 6px 12px grey;
-  flex-flow: column nowrap;
 }
 
 button {
@@ -49,11 +48,11 @@ button {
   margin: 30%;
   margin-bottom: 10%;
   background: linear-gradient(
-    120deg,
-    hsl(189, 98%, 66%) 10%,
-    hsl(229, 100%, 65%) 12%,
-    hsl(273, 100%, 64%) 14%,
-    hsl(266, 62%, 55%) 20%
+    130deg,
+    hsl(189, 98%, 66%),
+    hsl(229, 100%, 65%),
+    hsl(273, 100%, 64%),
+    hsl(278, 52%, 28%)
   );
   border: none;
   max-width: 130px;
@@ -70,7 +69,6 @@ button {
   text-align: center;
   margin: 0 auto;
   width: 60vw;
-  padding: 0;
 }
 
 .main_card > h2 {
@@ -80,18 +78,15 @@ button {
 }
 
 #qForm > div {
-  margin-left: 0;
+  margin-left: 5vw;
   margin-right: auto;
-  margin-bottom: 5px;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  max-height: 40vh;
-  margin-bottom: 0;
-  width: 100vw;
+  max-height: 20vh;
 }
 
 .counts {
